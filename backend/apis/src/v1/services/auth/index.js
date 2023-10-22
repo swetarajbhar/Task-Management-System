@@ -45,6 +45,19 @@ const signInService = async (params) => {
   }
 };
 
+const logoutService = async (params) => {
+  try {
+    return await user.findOneAndUpdate(
+      { _id: params.userId },
+      {
+        x_access_token: null,
+      }
+    );
+  } catch (error) {
+    throw error;
+  }
+};
 module.exports = {
   signInService,
+  logoutService,
 };

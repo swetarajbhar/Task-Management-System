@@ -4,6 +4,7 @@ const cors = require("cors");
 var bodyParser = require("body-parser");
 
 const authRoute = require("./apis/src/v1/routes/auth/index");
+const taskRoute = require("./apis/src/v1/routes/task/index");
 
 const { bootstrap: initializeMongo } = require("./config/components/mongo");
 
@@ -24,7 +25,7 @@ initializeMongo();
 
 // custom routes for business logic to be placed below.
 app.use("/auth", authRoute);
-// app.use("/api/v1/schedule/", scheduleRoutes);
+app.use("/task", taskRoute);
 // app.use("/api/v1/transcribe/", transcribeRoute);
 // app.use("/api/v1/user/", userRoute);
 // app.use("/api/v1/language/", languageRoute);
